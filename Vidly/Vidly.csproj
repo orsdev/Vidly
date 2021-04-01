@@ -176,10 +176,28 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104011330187_InitialModel.cs" />
+    <Compile Include="Migrations\202104011330187_InitialModel.Designer.cs">
+      <DependentUpon>202104011330187_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104011331204_AddIsSubcribedToCustomer.cs" />
+    <Compile Include="Migrations\202104011331204_AddIsSubcribedToCustomer.Designer.cs">
+      <DependentUpon>202104011331204_AddIsSubcribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104011333477_AddMembershipType.cs" />
+    <Compile Include="Migrations\202104011333477_AddMembershipType.Designer.cs">
+      <DependentUpon>202104011333477_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104011335106_PopulateMembership.cs" />
+    <Compile Include="Migrations\202104011335106_PopulateMembership.Designer.cs">
+      <DependentUpon>202104011335106_PopulateMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -345,6 +363,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -356,6 +375,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104011330187_InitialModel.resx">
+      <DependentUpon>202104011330187_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104011331204_AddIsSubcribedToCustomer.resx">
+      <DependentUpon>202104011331204_AddIsSubcribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104011333477_AddMembershipType.resx">
+      <DependentUpon>202104011333477_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104011335106_PopulateMembership.resx">
+      <DependentUpon>202104011335106_PopulateMembership.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
