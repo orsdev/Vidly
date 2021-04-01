@@ -14,13 +14,24 @@ namespace Vidly.Models
         [StringLength(255)]
         public string Name { get; set; }
 
-        [Required]
         public DateTime DOB { get; set; }
 
-        public bool IsSubscribed { get; set; }
+        public bool IsSubscribedToNewsletter { get; set; }
 
+        /*
+            * MembershipType is a Navigation Property, it allows
+            * navigation of a type to another.
+            * 
+            * Customer - MembershipType
+        */
         public MembershipType MembershipType { get; set; }
 
-        public int MembershipTypeId {get; set;}
+        /*
+             * By convention in Entity Framework, MembershipTypeId is treated
+             * as a Foreign key
+             * 
+         */
+        public byte MembershipTypeId { get; set; }
+
     }
 }
