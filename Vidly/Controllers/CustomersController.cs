@@ -1,17 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Vidly.Models;
 
 namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
+        /*
+             *  links the database server to the data model class
+         */
+        private readonly ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Customers
         public ActionResult Index()
         {
-            return View();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            return View(customers);
         }
     }
 }
