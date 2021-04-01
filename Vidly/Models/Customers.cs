@@ -17,5 +17,10 @@ namespace Vidly.Models
         [Required]
         public DateTime DOB { get; set; }
 
+        public bool IsSubscribed { get; set; }
+
+        public MembershipType MembershipType { get; set; }
+
+        public int MembershipTypeId {get; set;}
     }
 }
