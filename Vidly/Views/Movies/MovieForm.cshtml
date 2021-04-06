@@ -7,28 +7,38 @@
 <h2>New Movies</h2>
 
 <div class="row mt-5">
-    <div class="col-12 col-sm-10 col-md-5 col-lg-4">
+    <div class="col-12 col-sm-10 col-md-5 col-lg-5">
         @using (Html.BeginForm("save", "movies", FormMethod.Post, new { @class = "col-12 w-100" }))
         {
             <div class="form-group">
                 <label for="Name">Movie Title</label>
-                @Html.TextBoxFor(m => m.Movies.Name, new { @class = "form-control form-control-lg", placeholder = "Title"})
+                @Html.TextBoxFor(m => m.Movies.Name, new { @class = "form-control form-control-lg", placeholder = "Title" })
+                @Html.ValidationMessageFor(m => m.Movies.Name, "", new { @class = "text-danger small" })
             </div>
             <div class="form-group">
-                   @Html.DropDownListFor(m => m.Movies.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Genre", new { @class ="form-control"})
+                @Html.DropDownListFor(m => m.Movies.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Genre", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movies.GenreId, "", new { @class = "text-danger small" })
             </div>
             <div class="form-group">
                 <label for="ReleaseDate">Release Date</label>
-                @Html.TextBoxFor(m => m.Movies.ReleaseDate, "{0:yyyy-MM-dd}", new { @class = "form-control form-control-lg", placeholder = "Release Date", type = "date"})
+                @Html.TextBoxFor(m => m.Movies.ReleaseDate, "{0:yyyy-MM-dd}", new { @class = "form-control form-control-lg", placeholder = "Release Date", type = "date" })
+                @Html.ValidationMessageFor(m => m.Movies.ReleaseDate, "", new { @class = "text-danger small" })
             </div>
             <div class="form-group">
                 <label for="NumberInStock">Number in Stock</label>
-                @Html.TextBoxFor(m => m.Movies.NumberInStock, new { @class = "form-control form-control-lg", placeholder = "Number in Stock"})
+                @Html.TextBoxFor(m => m.Movies.NumberInStock, new { @class = "form-control form-control-lg", placeholder = "Number in Stock" })
+                @Html.ValidationMessageFor(m => m.Movies.NumberInStock, "", new { @class = "text-danger small" })
             </div>
             <div class="form-group">
                 @Html.HiddenFor(m => m.Movies.Id)
+                @Html.AntiForgeryToken()
             </div>
             <button type="submit" class="btn btn-primary d-block mt-3">Save</button>
         }
-        </div>
+    </div>
 </div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
