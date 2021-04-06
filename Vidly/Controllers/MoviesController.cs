@@ -62,6 +62,7 @@ namespace Vidly.Controllers
 
         }
 
+        [HttpPost]
         public ActionResult Save(Movies movies)
         {
             if (movies.Id == 0)
