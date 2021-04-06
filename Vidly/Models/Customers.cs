@@ -12,8 +12,10 @@ namespace Vidly.Models
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Full Name")]
         public string Name { get; set; }
 
+        [Display(Name = "Date of Birth")]
         public DateTime DOB { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }
