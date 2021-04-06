@@ -225,6 +225,14 @@
     <Compile Include="Migrations\202104060652482_AddDataAnnotationToCustomers.Designer.cs">
       <DependentUpon>202104060652482_AddDataAnnotationToCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104060813432_AddFieldsToMembershipType.cs" />
+    <Compile Include="Migrations\202104060813432_AddFieldsToMembershipType.Designer.cs">
+      <DependentUpon>202104060813432_AddFieldsToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104060818358_AddAnnotationToMoviesModel.cs" />
+    <Compile Include="Migrations\202104060818358_AddAnnotationToMoviesModel.Designer.cs">
+      <DependentUpon>202104060818358_AddAnnotationToMoviesModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
@@ -452,6 +460,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104060652482_AddDataAnnotationToCustomers.resx">
       <DependentUpon>202104060652482_AddDataAnnotationToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104060813432_AddFieldsToMembershipType.resx">
+      <DependentUpon>202104060813432_AddFieldsToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104060818358_AddAnnotationToMoviesModel.resx">
+      <DependentUpon>202104060818358_AddAnnotationToMoviesModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
