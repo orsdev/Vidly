@@ -2,7 +2,7 @@
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Customer";
 }
 
 <h2>Customer</h2>
@@ -18,7 +18,7 @@
         @foreach (var customer in Model)
         {
             <tr>
-                <td>@Html.ActionLink(customer.Name, "edit", "customer", new { id = customer.Id }, null)</td>
+                <td>@Html.ActionLink(customer.Name, "edit", "customers", new { id = customer.Id }, null)</td>
                 <td>@customer.MembershipType.Name</td>
             </tr>
         }

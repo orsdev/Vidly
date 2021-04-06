@@ -1,0 +1,39 @@
+﻿@model Vidly.ViewModels.CustomerFormViewModel
+
+@{
+    ViewBag.Title = "AddCustomer";
+}
+
+<h2>AddCustomer</h2>
+
+<div class="row">
+    <div class="col-12 col-sm-10 col-md-5 col-lg-4">
+        @using (Html.BeginForm("save", "customers", FormMethod.Post, new { @class = "col-12 w-100" }))
+        {
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(m => m.Customers.Name)
+                @Html.TextBoxFor(m => m.Customers.Name, new { @class = "form-control ", placeholder = "Enter your name" })
+            </div>
+            <div class="form-group mt-3">
+                @Html.LabelFor(m => m.Customers.DOB)
+                @Html.TextBoxFor(m => m.Customers.DOB, "{0:yyyy-MM-dd}" ,new { @class = "form-control ", type = "date" })
+            </div>
+            <div class="form-group  row">
+                <div class="form-check">
+                    <label class="d-flex align-items-center">
+                        @Html.CheckBoxFor(m => m.Customers.IsSubscribedToNewsletter, new { @class = "" })
+                        <span class="ml-1">Newsletter</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.DropDownListFor(m => m.Customers.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Membership Type", new { @class = "form-control", required = true })
+            </div>
+            <div class="form-group">
+                @Html.HiddenFor(c => c.Customers.Id)
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        }
+    </div>
+</div>
