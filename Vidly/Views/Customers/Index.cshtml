@@ -5,9 +5,22 @@
     ViewBag.Title = "Customer";
 }
 
-<h2>Customer</h2>
 
-<table class="table table-bordered table-hover">
+@{
+    if(!Model.Any())
+    {
+        <div class="my-4">
+            <h4 class="display-4">You have no customers.</h4>
+        </div>
+
+        return;
+    }
+
+}
+
+<h2>Customers</h2>
+
+<table class="table table-bordered table-hover" id="customers-table">
     <thead class="thead-dark">
         <tr>
             <th>Customer</th>
@@ -20,7 +33,40 @@
             <tr>
                 <td>@Html.ActionLink(customer.Name, "edit", "customers", new { id = customer.Id }, null)</td>
                 <td>@customer.MembershipType.Name</td>
+                <td>
+                    <button class="btn btn-sm btn-danger delete-customer-btn" data-id=@customer.Id>Delete</button>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#customers-table');
+
+            table.on('click', '.delete-customer-btn', function (e) {
+                var button = $(this);
+                var id = $(this).data('id');
+
+                $.ajax({
+                    url: `/api/customers/${id}`,
+                    method: 'DELETE',
+                    data: {
+                        id: id
+                    },
+                    complete: function () {
+                        button.parents('tr').remove();
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+
+
+            })
+        });
+    </script>
+}
